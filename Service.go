@@ -46,7 +46,7 @@ func NewService(config *ServiceConfig) (*Service, *errortools.Error) {
 func (service *Service) httpRequest(httpMethod string, requestConfig *go_http.RequestConfig) (*http.Request, *http.Response, *errortools.Error) {
 	// add token
 	header := http.Header{}
-	header.Set("X-App-Token", fmt.Sprintf("Bearer %s", service.appToken))
+	header.Set("X-App-Token", service.appToken)
 	(*requestConfig).NonDefaultHeaders = &header
 
 	// add error model
@@ -64,4 +64,8 @@ func (service *Service) url(path string) string {
 
 func (service *Service) get(requestConfig *go_http.RequestConfig) (*http.Request, *http.Response, *errortools.Error) {
 	return service.httpRequest(http.MethodGet, requestConfig)
+}
+
+func (service *Service) post(requestConfig *go_http.RequestConfig) (*http.Request, *http.Response, *errortools.Error) {
+	return service.httpRequest(http.MethodPost, requestConfig)
 }

@@ -12,18 +12,18 @@ import (
 // GekentekendeVoertuigenBrandstof stores GekentekendeVoertuigenBrandstof from Service
 //
 type GekentekendeVoertuigenBrandstof struct {
-	Kenteken                       string                 `json:"kenteken"`
-	BrandstofVolgnummer            go_types.Int64String   `json:"brandstof_volgnummer"`
-	BrandstofOmschrijving          go_types.Int64String   `json:"brandstof_omschrijving"`
-	BrandstofverbruikBuiten        go_types.Float64String `json:"brandstofverbruik_buiten"`
-	BrandstofverbruikGecombineerd  go_types.Float64String `json:"brandstofverbruik_gecombineerd"`
-	BrandstofverbruikStad          go_types.Float64String `json:"brandstofverbruik_stad"`
-	CO2UitstootGecombineerd        go_types.Int64String   `json:"co2_uitstoot_gecombineerd"`
-	GeluidsniveauStationair        go_types.Int64String   `json:"geluidsniveau_stationair"`
-	EmissiecodeOmschrijving        go_types.Int64String   `json:"emissiecode_omschrijving"`
-	MilieuklasseEGGoedkeuringLicht string                 `json:"milieuklasse_eg_goedkeuring_licht"`
-	NettoMaximumVermogen           go_types.Float64String `json:"nettomaximumvermogen"`
-	ToerentalGeluidsniveau         go_types.Int64String   `json:"toerental_geluidsniveau"`
+	Kenteken                       string                  `json:"kenteken"`
+	BrandstofVolgnummer            *go_types.Int64String   `json:"brandstof_volgnummer"`
+	BrandstofOmschrijving          *go_types.Int64String   `json:"brandstof_omschrijving"`
+	BrandstofverbruikBuiten        *go_types.Float64String `json:"brandstofverbruik_buiten"`
+	BrandstofverbruikGecombineerd  *go_types.Float64String `json:"brandstofverbruik_gecombineerd"`
+	BrandstofverbruikStad          *go_types.Float64String `json:"brandstofverbruik_stad"`
+	CO2UitstootGecombineerd        *go_types.Int64String   `json:"co2_uitstoot_gecombineerd"`
+	GeluidsniveauStationair        *go_types.Int64String   `json:"geluidsniveau_stationair"`
+	EmissiecodeOmschrijving        *go_types.Int64String   `json:"emissiecode_omschrijving"`
+	MilieuklasseEGGoedkeuringLicht *string                 `json:"milieuklasse_eg_goedkeuring_licht"`
+	NettoMaximumVermogen           *go_types.Float64String `json:"nettomaximumvermogen"`
+	ToerentalGeluidsniveau         *go_types.Int64String   `json:"toerental_geluidsniveau"`
 }
 
 type GetGekentekendeVoertuigenBrandstofConfig struct {
