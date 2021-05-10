@@ -9,7 +9,8 @@ import (
 )
 
 const (
-	apiURL string = "https://opendata.rdw.nl/resource"
+	apiName string = "RDW"
+	apiURL  string = "https://opendata.rdw.nl/resource"
 )
 
 // type
@@ -68,4 +69,15 @@ func (service *Service) get(requestConfig *go_http.RequestConfig) (*http.Request
 
 func (service *Service) post(requestConfig *go_http.RequestConfig) (*http.Request, *http.Response, *errortools.Error) {
 	return service.httpRequest(http.MethodPost, requestConfig)
+}
+func (service Service) APIName() string {
+	return apiName
+}
+
+func (service Service) APIKey() string {
+	return service.appToken
+}
+
+func (service Service) APICallCount() int64 {
+	return service.httpService.RequestCount()
 }

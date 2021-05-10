@@ -194,6 +194,8 @@ github.com/leapforce-libraries/go_errortools v0.0.0-20210421105612-afc8a27266b6/
 github.com/leapforce-libraries/go_http v0.0.0-20210326105232-ecf506e03a53/go.mod h1:IH/cZEf1NqxMGqpNzqAXe6YI07eEXGYA5/GpF5sDbnI=
 github.com/leapforce-libraries/go_http v0.0.0-20210411203458-ee4cb58f4726 h1:GmYC+Bwyo6/aw7QEtZnefXqH/MW8CiSaq4z8j2uqlgI=
 github.com/leapforce-libraries/go_http v0.0.0-20210411203458-ee4cb58f4726/go.mod h1:At3tUjtPsGlf29ZsHW3PEInXrQPl52AB7rQStWoL094=
+github.com/leapforce-libraries/go_http v0.0.0-20210507204726-95a398701d32 h1:E9OEHg+h3BfztZ1c8RgHTQ/p05JVuShd0/pgACMPZgA=
+github.com/leapforce-libraries/go_http v0.0.0-20210507204726-95a398701d32/go.mod h1:At3tUjtPsGlf29ZsHW3PEInXrQPl52AB7rQStWoL094=
 github.com/leapforce-libraries/go_timechimp v0.0.0-20210409195613-f541af346d87 h1:A798z0xEhfJ3cRCnm4ebYr1cfHXbGiNQOA8j603wims=
 github.com/leapforce-libraries/go_timechimp v0.0.0-20210409195613-f541af346d87/go.mod h1:zTVXLbN+ppgcVHSAYwAl24QravpMRbzw133kx+Not+w=
 github.com/leapforce-libraries/go_types v0.0.0-20210415100703-687744db463d h1:OoIjjVj57oxIpyS+mRFha3PWbCinSEE46V3XE/Y6eZo=
