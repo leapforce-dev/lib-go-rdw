@@ -2,6 +2,7 @@ package rdw
 
 import (
 	"fmt"
+	"net/http"
 	"net/url"
 
 	errortools "github.com/leapforce-libraries/go_errortools"
@@ -47,11 +48,12 @@ func (service *Service) GetKentekenInfo(config *GetKentekenInfoConfig) (*[]Kente
 	kentekenInfo := []KentekenInfo{}
 
 	requestConfig := go_http.RequestConfig{
+		Method:        http.MethodGet,
 		URL:           service.url(path),
 		ResponseModel: &kentekenInfo,
 	}
 
-	_, _, e := service.get(&requestConfig)
+	_, _, e := service.httpRequest(&requestConfig)
 	if e != nil {
 		return nil, e
 	}

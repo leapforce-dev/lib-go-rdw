@@ -44,7 +44,7 @@ func NewService(config *ServiceConfig) (*Service, *errortools.Error) {
 	}, nil
 }
 
-func (service *Service) httpRequest(httpMethod string, requestConfig *go_http.RequestConfig) (*http.Request, *http.Response, *errortools.Error) {
+func (service *Service) httpRequest(requestConfig *go_http.RequestConfig) (*http.Request, *http.Response, *errortools.Error) {
 	// add token
 	header := http.Header{}
 	header.Set("X-App-Token", service.appToken)
@@ -54,7 +54,7 @@ func (service *Service) httpRequest(httpMethod string, requestConfig *go_http.Re
 	errorResponse := ErrorResponse{}
 	(*requestConfig).ErrorModel = &errorResponse
 
-	request, response, e := service.httpService.HTTPRequest(httpMethod, requestConfig)
+	request, response, e := service.httpService.HTTPRequest(requestConfig)
 
 	return request, response, e
 }
@@ -63,13 +63,6 @@ func (service *Service) url(path string) string {
 	return fmt.Sprintf("%s/%s", apiURL, path)
 }
 
-func (service *Service) get(requestConfig *go_http.RequestConfig) (*http.Request, *http.Response, *errortools.Error) {
-	return service.httpRequest(http.MethodGet, requestConfig)
-}
-
-func (service *Service) post(requestConfig *go_http.RequestConfig) (*http.Request, *http.Response, *errortools.Error) {
-	return service.httpRequest(http.MethodPost, requestConfig)
-}
 func (service Service) APIName() string {
 	return apiName
 }

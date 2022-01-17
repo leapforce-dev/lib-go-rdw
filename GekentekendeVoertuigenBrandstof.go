@@ -2,6 +2,7 @@ package rdw
 
 import (
 	"fmt"
+	"net/http"
 	"net/url"
 
 	errortools "github.com/leapforce-libraries/go_errortools"
@@ -44,11 +45,12 @@ func (service *Service) GetGekentekendeVoertuigenBrandstof(config *GetGekenteken
 	gekentekendeVoertuigenBrandstof := GekentekendeVoertuigenBrandstof{}
 
 	requestConfig := go_http.RequestConfig{
+		Method:        http.MethodGet,
 		URL:           service.url(path),
 		ResponseModel: &gekentekendeVoertuigenBrandstof,
 	}
 
-	_, _, e := service.get(&requestConfig)
+	_, _, e := service.httpRequest(&requestConfig)
 	if e != nil {
 		return nil, e
 	}
