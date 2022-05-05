@@ -54,7 +54,7 @@ func (service *Service) httpRequest(requestConfig *go_http.RequestConfig) (*http
 	errorResponse := ErrorResponse{}
 	(*requestConfig).ErrorModel = &errorResponse
 
-	request, response, e := service.httpService.HTTPRequest(requestConfig)
+	request, response, e := service.httpService.HttpRequest(requestConfig)
 
 	return request, response, e
 }

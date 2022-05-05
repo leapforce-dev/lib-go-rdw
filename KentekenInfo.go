@@ -49,7 +49,7 @@ func (service *Service) GetKentekenInfo(config *GetKentekenInfoConfig) (*[]Kente
 
 	requestConfig := go_http.RequestConfig{
 		Method:        http.MethodGet,
-		URL:           service.url(path),
+		Url:           service.url(path),
 		ResponseModel: &kentekenInfo,
 	}
 

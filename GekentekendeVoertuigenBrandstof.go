@@ -46,7 +46,7 @@ func (service *Service) GetGekentekendeVoertuigenBrandstof(config *GetGekenteken
 
 	requestConfig := go_http.RequestConfig{
 		Method:        http.MethodGet,
-		URL:           service.url(path),
+		Url:           service.url(path),
 		ResponseModel: &gekentekendeVoertuigenBrandstof,
 	}
 
