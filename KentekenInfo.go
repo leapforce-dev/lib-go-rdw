@@ -11,23 +11,32 @@ import (
 )
 
 // KentekenInfo stores KentekenInfo from Service
-//
 type KentekenInfo struct {
-	Kenteken          string                `json:"kenteken"`
-	Voertuigsoort     *string               `json:"voertuigsoort"`
-	Merk              *string               `json:"merk"`
-	Handelsbenaming   *string               `json:"handelsbenaming"`
-	BrutoBPM          *go_types.Int64String `json:"bruto_bpm"`
-	Inrichting        *string               `json:"inrichting"`
-	AantalZitplaatsen *go_types.Int64String `json:"aantal_zitplaatsen"`
-	EersteKleur       *string               `json:"eerste_kleur"`
-	TweedeKleur       *string               `json:"tweede_kleur"`
-	AantalCilinders   *go_types.Int64String `json:"aantal_cilinders"`
-	Cilinderinhoud    *go_types.Int64String `json:"cilinderinhoud"`
-	Catalogusprijs    *go_types.Int64String `json:"catalogusprijs"`
-	WAMVerzekerd      *string               `json:"wam_verzekerd"`
-	Lengte            *go_types.Int64String `json:"lengte"`
-	Breedte           *go_types.Int64String `json:"breedte"`
+	Kenteken                               string                `json:"kenteken"`
+	Voertuigsoort                          *string               `json:"voertuigsoort"`
+	Merk                                   *string               `json:"merk"`
+	Handelsbenaming                        *string               `json:"handelsbenaming"`
+	BrutoBpm                               *go_types.Int64String `json:"bruto_bpm"`
+	Inrichting                             *string               `json:"inrichting"`
+	AantalZitplaatsen                      *go_types.Int64String `json:"aantal_zitplaatsen"`
+	EersteKleur                            *string               `json:"eerste_kleur"`
+	TweedeKleur                            *string               `json:"tweede_kleur"`
+	AantalCilinders                        *go_types.Int64String `json:"aantal_cilinders"`
+	Cilinderinhoud                         *go_types.Int64String `json:"cilinderinhoud"`
+	DatumEersteToelating                   string                `json:"datum_eerste_toelating"`
+	DatumEersteTenaamstellingInNederland   string                `json:"datum_eerste_tenaamstelling_in_nederland"`
+	WamVerzekerd                           string                `json:"wam_verzekerd"`
+	Lengte                                 *go_types.Int64String `json:"lengte"`
+	Breedte                                *go_types.Int64String `json:"breedte"`
+	JaarLaatsteRegistratieTellerstand      string                `json:"jaar_laatste_registratie_tellerstand"`
+	Tellerstandoordeel                     string                `json:"tellerstandoordeel"`
+	CodeToelichtingTellerstandoordeel      string                `json:"code_toelichting_tellerstandoordeel"`
+	TenaamstellenMogelijk                  string                `json:"tenaamstellen_mogelijk"`
+	VervaldatumApkDt                       string                `json:"vervaldatum_apk_dt"`
+	DatumTenaamstellingDt                  string                `json:"datum_tenaamstelling_dt"`
+	DatumEersteToelatingDt                 string                `json:"datum_eerste_toelating_dt"`
+	DatumEersteTenaamstellingInNederlandDt string                `json:"datum_eerste_tenaamstelling_in_nederland_dt"`
+	Zuinigheidsclassificatie               string                `json:"zuinigheidsclassificatie"`
 }
 
 type GetKentekenInfoConfig struct {
@@ -35,7 +44,6 @@ type GetKentekenInfoConfig struct {
 }
 
 // GetKentekenInfo returns all kentekenInfo
-//
 func (service *Service) GetKentekenInfo(config *GetKentekenInfoConfig) (*[]KentekenInfo, *errortools.Error) {
 	if config == nil {
 		return nil, errortools.ErrorMessage("GetKentekenInfoConfig is nil")
