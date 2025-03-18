@@ -35,7 +35,7 @@ type GekentekendeVoertuigen struct {
 	DatumEersteToelating                   string                  `json:"datum_eerste_toelating"`
 	DatumEersteTenaamstellingInNederland   string                  `json:"datum_eerste_tenaamstelling_in_nederland"`
 	WachtOpKeuren                          string                  `json:"wacht_op_keuren"`
-	Catalogusprijs                         string                  `json:"catalogusprijs"`
+	Catalogusprijs                         *go_types.Int64String   `json:"catalogusprijs"`
 	WamVerzekerd                           string                  `json:"wam_verzekerd"`
 	AantalDeuren                           *go_types.Int64String   `json:"aantal_deuren"`
 	AantalWielen                           *go_types.Int64String   `json:"aantal_wielen"`
@@ -58,10 +58,10 @@ type GekentekendeVoertuigen struct {
 	Tellerstandoordeel                     string                  `json:"tellerstandoordeel"`
 	CodeToelichtingTellerstandoordeel      string                  `json:"code_toelichting_tellerstandoordeel"`
 	TenaamstellenMogelijk                  string                  `json:"tenaamstellen_mogelijk"`
-	VervaldatumApkDt                       types.DateString        `json:"vervaldatum_apk_dt"`
-	DatumTenaamstellingDt                  types.DateString        `json:"datum_tenaamstelling_dt"`
-	DatumEersteToelatingDt                 types.DateString        `json:"datum_eerste_toelating_dt"`
-	DatumEersteTenaamstellingInNederlandDt types.DateString        `json:"datum_eerste_tenaamstelling_in_nederland_dt"`
+	VervaldatumApkDt                       *types.DateString       `json:"vervaldatum_apk_dt"`
+	DatumTenaamstellingDt                  *types.DateString       `json:"datum_tenaamstelling_dt"`
+	DatumEersteToelatingDt                 *types.DateString       `json:"datum_eerste_toelating_dt"`
+	DatumEersteTenaamstellingInNederlandDt *types.DateString       `json:"datum_eerste_tenaamstelling_in_nederland_dt"`
 	Zuinigheidsclassificatie               string                  `json:"zuinigheidsclassificatie"`
 }
 
@@ -69,7 +69,6 @@ type GetGekentekendeVoertuigenConfig struct {
 	Kenteken string
 }
 
-// GetGekentekendeVoertuigen returns all gekentekendeVoertuigenBrandstof
 func (service *Service) GetGekentekendeVoertuigen(config *GetGekentekendeVoertuigenConfig) (*GekentekendeVoertuigen, *errortools.Error) {
 	if config == nil {
 		return nil, errortools.ErrorMessage("GetGekentekendeVoertuigenConfig is nil")
@@ -101,19 +100,18 @@ type ListGekentekendeVoertuigenConfig struct {
 	Order  string
 }
 
-// GetGekentekendeVoertuigen returns all gekentekendeVoertuigenBrandstof
 func (service *Service) ListGekentekendeVoertuigen(config *ListGekentekendeVoertuigenConfig) (*[]GekentekendeVoertuigen, *errortools.Error) {
 	if config == nil {
 		return nil, errortools.ErrorMessage("GetGekentekendeVoertuigenConfig is nil")
 	}
 
 	values := url.Values{}
-	values.Set("order", config.Order)
+	values.Set("$order", config.Order)
 	if config.Limit != nil {
-		values.Set("limit", strconv.Itoa(*config.Limit))
+		values.Set("$limit", strconv.Itoa(*config.Limit))
 	}
 	if config.Offset != nil {
-		values.Set("offset", strconv.Itoa(*config.Offset))
+		values.Set("$offset", strconv.Itoa(*config.Offset))
 	}
 
 	path := fmt.Sprintf("%v.json?%s", DataIdentifierGekentekendeVoertuigen, values.Encode())
