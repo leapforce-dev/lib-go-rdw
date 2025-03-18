@@ -13,8 +13,6 @@ const (
 	apiURL  string = "https://opendata.rdw.nl/resource"
 )
 
-// type
-//
 type Service struct {
 	appToken    string
 	httpService *go_http.Service
