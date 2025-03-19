@@ -69,7 +69,7 @@ type GetGekentekendeVoertuigenConfig struct {
 	Kenteken string
 }
 
-func (service *Service) GetGekentekendeVoertuigen(config *GetGekentekendeVoertuigenConfig) (*GekentekendeVoertuigen, *errortools.Error) {
+func (service *Service) GetGekentekendeVoertuigen(config *GetGekentekendeVoertuigenConfig) (*[]GekentekendeVoertuigen, *errortools.Error) {
 	if config == nil {
 		return nil, errortools.ErrorMessage("GetGekentekendeVoertuigenConfig is nil")
 	}
@@ -78,7 +78,7 @@ func (service *Service) GetGekentekendeVoertuigen(config *GetGekentekendeVoertui
 	values.Set("kenteken", config.Kenteken)
 
 	path := fmt.Sprintf("%v.json?%s", DataIdentifierGekentekendeVoertuigen, values.Encode())
-	gekentekendeVoertuigenBrandstof := GekentekendeVoertuigen{}
+	gekentekendeVoertuigenBrandstof := []GekentekendeVoertuigen{}
 
 	requestConfig := go_http.RequestConfig{
 		Method:        http.MethodGet,
